@@ -26,6 +26,6 @@ insertion: $(NAME)	## Performing an Insertion Sort
 	$(check_result)
 
 help:	## Show Help
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[31m%-20s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z_]+.*## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[31m%-10s\033[34m %s\n", $$1, $$2}'
 
 .PHONY: all clean quick merge insertion help
