@@ -27,7 +27,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(args.Users[1])
 
 	// ソート種類の識別
 	sorter := cmd.NewSorter(args.SortType)
