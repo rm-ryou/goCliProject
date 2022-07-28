@@ -5,24 +5,27 @@ check_result :=	@read -p "view result? (y/N): " ans; \
 					cat ./dist/result.json; \
 				fi
 
-all: $(NAME)
+all: $(NAME)	## Creation of executable file
 
 $(NAME): main.go
 	go build -o $@ $<
 
-clean:
+clean:			## Delete executable file
 	$(RM) $(NAME)
 
-quick:
+quick: $(NAME)		## Performing an Quick Sort
 	@./$(NAME) -type quick -json ./misc/data/user.json -output ./dist/result.json
 	$(check_result)
 
-merge:
+merge: $(NAME)		## Performing an Merge Sort
 	@./$(NAME) -type merge -json ./misc/data/user.json -output ./dist/result.json
 	$(check_result)
 
-insertion:
+insertion: $(NAME)	## Performing an Insertion Sort
 	@./$(NAME) -type insertion -json ./misc/data/user.json -output ./dist/result.json
 	$(check_result)
 
-.PHONY: all clean quick merge insertion
+help:	## Show Help
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[31m%-20s\033[0m %s\n", $$1, $$2}'
+
+.PHONY: all clean quick merge insertion help
