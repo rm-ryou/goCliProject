@@ -73,28 +73,14 @@ type InsertSorter struct {
 
 func insertSort(data []model.User, start, end int) {
 	for i := start + 1; i < end; i++ {
-		for j := i; j > start && data[j].Id < data[j - 1].Id; i-- {
-			data[j], data[j - 1] = data[j - 1], data[j]
+		for j := i; j > start && data[j].Id < data[j-1].Id; j-- {
+			data[j], data[j-1] = data[j-1], data[j]
 		}
 	}
 }
 
 func (s *InsertSorter) Sort(data []model.User) {
 	insertSort(data, 0, len(data))
-/*	n := len(data)
-	for i := 1; i < n; i++ {
-		keyNum := data[i].Id
-		keyStr := data[i]
-		j := i
-		for ; j > 0; j-- {
-			if data[j-1].Id > keyNum {
-				data[j] = data[j-1]
-			} else {
-				break
-			}
-		}
-		data[j] = keyStr
-	}*/
 }
 
 func NewSorter(s string) Sorter {
