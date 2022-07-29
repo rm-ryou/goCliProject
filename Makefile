@@ -25,7 +25,13 @@ insertion: $(NAME)		## Performing an Insertion Sort
 	@./$(NAME) -type insertion -json ./misc/data/user.json -output ./dist/result.json
 	$(check_result)
 
+build:		## Create ubuntu18.04 image
+	@docker build -t test_ubunt_18.04 .
+
+run:		## Container execution
+	@docker run -it --name "test_env" -v $(PWD):/root --rm test_ubunt_18.04 /bin/bash
+
 help:		## Show Help
 	@grep -E '^[a-zA-Z_]+.*## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[34m%-10s\033[0m %s\n", $$1, $$2}'
 
-.PHONY: all clean quick merge insertion help
+.PHONY: all clean build run quick merge insertion help
