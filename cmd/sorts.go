@@ -2,8 +2,6 @@ package cmd
 
 import "example.com/GoCliProject/model"
 
-//type UserSlice []model.User
-
 type Sorter interface {
 	Sort([]model.User)
 }

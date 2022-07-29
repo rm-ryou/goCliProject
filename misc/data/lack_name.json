@@ -7,7 +7,7 @@
 		"birthday": "2022-01-01 00:00:00"
 	},
 	{
-		"name": "foo",
+		"id": 1,
 		"email": "foo@example.com",
 		"phone_number": "xxxxxxxxxxx",
 		"birthday": "2022-01-01 00:00:00"

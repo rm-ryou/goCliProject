@@ -28,6 +28,11 @@ func main() {
 		log.Fatal(err)
 	}
 
+	flg := cmd.Validater(args.Users)
+	if flg != true {
+		os.Exit(1)
+	}
+
 	// ソート種類の識別
 	sorter := cmd.NewSorter(args.SortType)
 	if sorter == nil {

@@ -4,8 +4,8 @@
 ### 環境構築
 簡易的なDockerfileを用いてイメージ、コンテナを作成して、コンテナ(ubuntu:18.04)を起動させます。
 ```bash
-make build
-make run
+make docker_build
+make docker_run
 ```
 ### 使い方
 実行ファイルの作成
