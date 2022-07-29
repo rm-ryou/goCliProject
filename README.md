@@ -1,5 +1,6 @@
 # goCliProject
 指定されたディレクトリ内にあるjsonファイルをソートして指定のファイルに出力するプログラムです。
+
 環境構築(ubuntu:18.04)
 ```bash
 make build
