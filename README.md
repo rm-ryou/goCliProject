@@ -1,7 +1,8 @@
 # goCliProject
 指定されたディレクトリ内にあるjsonファイルをソートして指定のファイルに出力するプログラムです。
 
-環境構築(ubuntu:18.04)
+### 環境構築
+簡易的なDockerfileを用いてイメージ、コンテナを作成して、コンテナ(ubuntu:18.04)を起動させます。
 ```bash
 make build
 make run
@@ -10,14 +11,19 @@ make run
 実行ファイルの作成
 ```bash
 make
+./json_sorter -type quick -json ./misc/data/user.json -output res.json
 ```
-ソートの種類の選択
+引数のオプション
 ```bash
-make quick
-make merge
-make insertion
+-type   Sort type
+-json   Path of input file
+-output Path of output file
 ```
-または、
+makeを用いての実行
+```bash
+make type (quick, merge or insertion)
 ```
-./json_sorter -type (sort type) -json (Path of input file) -output (Path to output file)
+その他make機能の表示
+```bash
+make help
 ```
