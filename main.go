@@ -31,7 +31,7 @@ func main() {
 	// ソート種類の識別
 	sorter := cmd.NewSorter(args.SortType)
 	if sorter == nil {
-		fmt.Println(("invalid sort type"))
+		fmt.Fprintln(os.Stderr, "invalid sort type")
 		os.Exit(1)
 	}
 
