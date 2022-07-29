@@ -1,6 +1,8 @@
 package cmd
 
-import "example.com/GoCliProject/model"
+import (
+	"example.com/GoCliProject/model"
+)
 
 type Sorter interface {
 	Sort([]model.User)

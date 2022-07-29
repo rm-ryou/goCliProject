@@ -1,10 +1,10 @@
 package main
 
 import (
-	"os"
+	"flag"
 	"fmt"
 	"log"
-	"flag"
+	"os"
 	"time"
 
 	"example.com/GoCliProject/cmd"
@@ -28,9 +28,9 @@ func main() {
 		log.Fatal(err)
 	}
 
-	flg := cmd.Validater(args.Users)
-	if flg != true {
-		os.Exit(1)
+	err = cmd.Validater(args.Users)
+	if err != nil {
+		log.Fatal(err)
 	}
 
 	// ソート種類の識別
@@ -44,7 +44,7 @@ func main() {
 	start := time.Now()
 	sorter.Sort(args.Users)
 	diff := time.Since(start)
-	
+
 	// ソート後のデータの書き込み
 	err = cmd.OutputToFile(args.OutputJsonFile, args.Users)
 	if err != nil {
